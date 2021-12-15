@@ -2,7 +2,11 @@
 const Axios = require('axios');
 const Webflow = require('webflow-api')
 let token = "3af01f7685f25901a74da7532f8052f0f07c2b50b9ced0d905d2689ab4847778"
-
+const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE'
+  };
 
 exports.handler = async function (event) {
     console.log(event.queryStringParameters)
@@ -35,13 +39,14 @@ exports.handler = async function (event) {
         })
     })
     console.log(faqArray)
-
+    
 
 
 
 
     return {
         statusCode: 200,
+        headers,
         body: JSON.stringify({
             message: faqArray
         })
