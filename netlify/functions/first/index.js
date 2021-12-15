@@ -10,20 +10,11 @@ const headers = {
 
 exports.handler = async function (event) {
     console.log(event.queryStringParameters)
-    // const http = Axios.create({
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //       'accept-version': '1.0.0'
-    //     },
-    //   });
-
-    //   const info = await http.get('https://api.webflow.com/sites/60f5180acd59a3f6e16540ab/collections/618ee908fbfef2849ad16c4c');
-    //   console.log(info.data);
-    
+   
     const webflow = new Webflow({ token: token });
 
     // Promise <Collection>
-    const item = await webflow.item({ collectionId: event.queryStringParameters.collection, itemId: event.queryStringParameters.item });
+    const item = await webflow.item({ collectionId: "6117a7b67f1352223a632286", itemId: event.queryStringParameters.item });
     let includesQorA = (key) => {
         if(key.includes("q") && key.length === 2){
             return key
@@ -39,10 +30,6 @@ exports.handler = async function (event) {
         })
     })
     console.log(faqArray)
-    
-
-
-
 
     return {
         statusCode: 200,
