@@ -5,7 +5,7 @@ let token = "3af01f7685f25901a74da7532f8052f0f07c2b50b9ced0d905d2689ab4847778"
 
 
 exports.handler = async function (event) {
-    console.log(event)
+    console.log(event.queryStringParameters)
     // const http = Axios.create({
     //     headers: {
     //       Authorization: `Bearer ${token}`,
