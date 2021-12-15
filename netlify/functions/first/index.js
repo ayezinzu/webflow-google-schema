@@ -19,7 +19,7 @@ exports.handler = async function (event) {
     const webflow = new Webflow({ token: token });
 
     // Promise <Collection>
-    const item = await webflow.item({ collectionId: event.body.collection, itemId: event.body.item });
+    const item = await webflow.item({ collectionId: event.queryStringParameters.collection, itemId: event.queryStringParameters.item });
     let includesQorA = (key) => {
         if(key.includes("q") && key.length === 2){
             return key
